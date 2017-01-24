@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<tr>
+<td>add</td>
+<td>矩阵加法，A+B的更高级形式，支持mask</td>
+</tr>
+<tr>
+<td>scaleAdd</td>
+<td>矩阵加法，一个带有缩放因子dst(I) = scale * src1(I) + src2(I)</td>
+</tr>
+<tr>
+<td>addWeighted</td>
+<td>矩阵加法，两个带有缩放因子dst(I) = saturate(src1(I) * alpha + src2(I) * beta + gamma)</td>
+</tr>
+<tr>
+<td>subtract</td>
+<td>矩阵减法，A-B的更高级形式，支持mask</td>
+</tr>
+<tr>
+<td>multiply</td>
+<td>矩阵逐元素乘法，同Mat::mul()函数，与A*B区别，支持mask</td>
+</tr>
+<tr>
+<td>gemm</td>
+<td>一个广义的矩阵乘法操作</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>矩阵逐元素除法，与A/B区别，支持mask</td>
+</tr>
+<tr>
+<td>abs</td>
+<td>对每个元素求绝对值</td>
+</tr>
+<tr>
+<td>absdiff</td>
+<td>两个矩阵的差的绝对值</td>
+</tr>
+<tr>
+<td>exp</td>
+<td>求每个矩阵元素 src(I) 的自然数 e 的 src(I) 次幂 dst[I] = e<sup>src(I)</sup></td>
+</tr>
+<tr>
+<td>pow</td>
+<td>求每个矩阵元素 src(I) 的 p 次幂 dst[I] = src(I)<sup>p</sup></td>
+</tr>
+<tr>
+<td>log</td>
+<td>求每个矩阵元素的自然数底 dst[I] = log|src(I)| (if src != 0)</td>
+</tr>
+<tr>
+<td>sqrt</td>
+<td>求每个矩阵元素的平方根</td>
+</tr>
+<tr>
+<td>min, max</td>
+<td>求每个元素的最小值或最大值返回这个矩阵 dst(I) = min(src1(I), src2(I)), max同</td>
+</tr>
+<tr>
+<td>minMaxLoc</td>
+<td>定位矩阵中最小值、最大值的位置</td>
+</tr>
+<tr>
+<td>compare</td>
+<td>返回逐个元素比较结果的矩阵</td>
+</tr>
+<tr>
+<td>bitwise_and, bitwise_not, bitwise_or, bitwise_xor</td>
+<td>每个元素进行位运算，分别是和、非、或、异或</td>
+</tr>
+</tbody>
+<tbody style="background-color:#ae2074">
+<tr>
+<td>cvarrToMat</td>
+<td>旧版数据CvMat,IplImage,CvMatND转换到新版数据Mat</td>
+</tr>
+<tr>
+<td>extractImageCOI</td>
+<td>从旧版数据中提取指定的通道矩阵给新版数据Mat</td>
+</tr>
+<tr>
+<td>randu</td>
+<td>以Uniform分布产生随机数填充矩阵，同 RNG::fill(mat, RNG::UNIFORM)</td>
+</tr>
+<tr>
+<td>randn</td>
+<td>以Normal分布产生随机数填充矩阵，同 RNG::fill(mat, RNG::NORMAL)</td>
+</tr>
+<tr>
+<td>randShuffle</td>
+<td>随机打乱一个一维向量的元素顺序</td>
+</tr>
+<tr>
+<td>theRNG()</td>
+<td>返回一个默认构造的RNG类的对象 theRNG()::fill(...)</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td>矩阵缩成向量</td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>矩阵拷贝的时候指定按x/y方向重复</td>
+</tr>
+<tr>
+<td>split</td>
+<td>多通道矩阵分解成多个单通道矩阵</td>
+</tr>
+<tr>
+<td>merge</td>
+<td>多个单通道矩阵合成一个多通道矩阵</td>
+</tr>
+<tr>
+<td>mixChannels</td>
+<td>矩阵间通道拷贝，如Rgba[]到Rgb[]和Alpha[]</td>
+</tr>
+<tr>
+<td>sort, sortIdx</td>
+<td>为矩阵的每行或每列元素排序</td>
+</tr>
+<tr>
+<td>setIdentity</td>
+<td>设置单元矩阵</td>
+</tr>
+<tr>
+<td>completeSymm</td>
+<td>矩阵上下三角拷贝</td>
+</tr>
+<tr>
+<td>inRange</td>
+<td>检查元素的取值范围是否在另两个矩阵的元素取值之间，返回验证矩阵</td>
+</tr>
+<tr>
+<td>checkRange</td>
+<td>检查矩阵的每个元素的取值是否在最小值与最大值之间，返回验证结果bool</td>
+</tr>
+</tbody>
+<tbody style="background-color:#2084ae">
+<tr>
+<td>sum</td>
+<td>求矩阵的元素和</td>
+</tr>
+<tr>
+<td>mean</td>
+<td>求均值</td>
+</tr>
+<tr>
+<td>meanStdDev</td>
+<td>均值和标准差</td>
+</tr>
+<tr>
+<td>countNonZero</td>
+<td>统计非零值个数</td>
+</tr>
+<tr>
+<td>cartToPolar, polarToCart</td>
+<td>笛卡尔坐标与极坐标之间的转换</td>
+</tr>
+<tr>
+<td>flip</td>
+<td>矩阵翻转</td>
+</tr>
+<tr>
+<td>transpose</td>
+<td>矩阵转置，比较 Mat::t() A<sup>T</sup></td>
+</tr>
+<tr>
+<td>trace</td>
+<td>矩阵的迹</td>
+</tr>
+<tr>
+<td>determinant</td>
+<td>行列式 |A|, det(A)</td>
+</tr>
+<tr>
+<td>eigen</td>
+<td>矩阵的特征值和特征向量</td>
+</tr>
+<tr>
+<td>invert</td>
+<td>矩阵的逆或者伪逆，比较 Mat::inv()</td>
+</tr>
+<tr>
+<td>magnitude</td>
+<td>向量长度计算 dst(I) = sqrt(x(I)<sup>2</sup> + y(I)<sup>2</sup>)</td>
+</tr>
+<tr>
+<td>Mahalanobis</td>
+<td>Mahalanobis距离计算</td>
+</tr>
+<tr>
+<td>phase</td>
+<td>相位计算，即两个向量之间的夹角</td>
+</tr>
+<tr>
+<td>norm</td>
+<td>求范数，1-范数、2-范数、无穷范数</td>
+</tr>
+<tr>
+<td>normalize</td>
+<td>标准化</td>
+</tr>
+<tr>
+<td>mulTransposed</td>
+<td>矩阵和它自己的转置相乘 A<sup>T</sup> * A, dst = scale(src - delta)<sup>T</sup>(src - delta)</td>
+</tr>
+<tr>
+<td>convertScaleAbs</td>
+<td>先缩放元素再取绝对值，最后转换格式为8bit型</td>
+</tr>
+<tr>
+<td>calcCovarMatrix</td>
+<td>计算协方差阵</td>
+</tr>
+<tr>
+<td>solve</td>
+<td>求解1个或多个线性系统或者求解最小平方问题(least-squares problem)</td>
+</tr>
+<tr>
+<td>solveCubic</td>
+<td>求解三次方程的根</td>
+</tr>
+<tr>
+<td>solvePoly</td>
+<td>求解多项式的实根和重根</td>
+</tr>
+<tr>
+<td>dct, idct</td>
+<td>正、逆离散余弦变换，idct同dct(src, dst, flags | DCT_INVERSE)</td>
+</tr>
+<tr>
+<td>dft, idft</td>
+<td>正、逆离散傅立叶变换, idft同dft(src, dst, flags | DTF_INVERSE)</td>
+</tr>
+<tr>
+<td>LUT</td>
+<td>查表变换</td>
+</tr>
+<tr>
+<td>getOptimalDFTSize</td>
+<td>返回一个优化过的DFT大小</td>
+</tr>
+<tr>
+<td>mulSpecturms</td>
+<td>两个傅立叶频谱间逐元素的乘法</td>
+</tr>
+</body>
+</html>
